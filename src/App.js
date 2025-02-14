@@ -1,12 +1,14 @@
 import "./App.css";
 import Header from "./Components/Header/Header";
-import TrackList from "./Components/Tracklist/Tracklist";
+import Home from "./Components/Home/Home";
+import SearchBar from "./Components/SearchBar/SearchBar";
 
 function App() {
   return (
     <div>
       <Header />
-      <TrackList />
+      <SearchBar />
+      <Home />
     </div>
   );
 }
