@@ -1,5 +1,6 @@
 import React from "react";
 import "./Tracklist.css";
+import Track from "../Track/Track";
 
 const trackList = [
   {
@@ -48,18 +49,13 @@ const trackList = [
     album: "Montero",
   },
 ];
-console.log(trackList);
 
 function TrackList() {
   return (
     <div className="trackList">
-      {trackList.map((track) => (
-        <div key={track.name}>
-          <p>Name: {track.name}</p>
-          <p>Artist: {track.artist}</p>
-          <p>Album: {track.album}</p>
-        </div>
-      ))}
+      {trackList.map((track) => {
+        return <Track track={track} key={track.name}></Track>;
+      })}
     </div>
   );
 }
