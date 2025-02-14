@@ -1,8 +1,8 @@
 import React from "react";
-
+import "./Buttons.css";
 const Button = ({ name }) => {
   return (
-    <div>
+    <div className="search-button">
       <button className="search-button">{name}</button>
     </div>
   );

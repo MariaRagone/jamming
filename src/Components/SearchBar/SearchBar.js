@@ -6,7 +6,7 @@ const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   return (
-    <div className="search-bar">
+    <div className="search-bar-area">
       <form>
         <input
           onChange={(e) => {
@@ -16,13 +16,23 @@ const SearchBar = () => {
           type="text"
           placeholder="Search for a song, artist, or album..."
         ></input>
-        <Button
+        {/* <Button
           name={"Find It!"}
           onClick={(e) => {
             e.preventDefault();
             console.log(searchTerm);
           }}
-        />
+        /> */}
+
+        <button
+          type="submit"
+          onClick={() => {
+            alert(`
+            Search Term: ${searchTerm}`);
+          }}
+        >
+          Find It
+        </button>
       </form>
     </div>
   );
