@@ -1,9 +1,14 @@
 import React, { useState } from "react";
+import "./SearchBar.css";
+import SearchButton from "../Buttons/SearchButton";
 
 const SearchBar = () => {
   return (
-    <div>
-      <p>Hi I'm the search bar</p>
+    <div className="search-bar">
+      <form>
+        <input type="text" placeholder="Search for a song..."></input>
+        <SearchButton />
+      </form>
     </div>
   );
 };
