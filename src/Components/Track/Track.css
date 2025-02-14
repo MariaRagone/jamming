@@ -9,7 +9,7 @@
   color: white;
 max-width: 600px; /* Width of each card */
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgb(255, 255, 255);
+  box-shadow: 0 2px 8px    rgb(163, 100, 202);
   padding: 16px;
   margin: 16px; /* Margin around each card */
   transition: transform 0.2s, box-shadow 0.2s;

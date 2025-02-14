@@ -1,6 +1,6 @@
 import React from "react";
 
-const SearchButton = ({ name }) => {
+const Button = ({ name }) => {
   return (
     <div>
       <button className="search-button">{name}</button>
@@ -8,4 +8,4 @@ const SearchButton = ({ name }) => {
   );
 };
 
-export default SearchButton;
+export default Button;

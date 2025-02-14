@@ -9,52 +9,62 @@ const trackList = [
     album: "the Album",
   },
   {
-    name: "Blinding Lights",
-    artist: "The Weeknd",
-    album: "After Hours",
+    name: "Way Maker",
+    artist: "Leeland",
+    album: "Better Word",
   },
   {
-    name: "Levitating",
-    artist: "Dua Lipa",
-    album: "Future Nostalgia",
+    name: "Graves Into Gardens",
+    artist: "Elevation Worship",
+    album: "Graves Into Gardens",
   },
   {
-    name: "Watermelon Sugar",
-    artist: "Harry Styles",
-    album: "Fine Line",
+    name: "Goodness of God",
+    artist: "Bethel Music",
+    album: "Victory",
   },
   {
-    name: "drivers license",
-    artist: "Olivia Rodrigo",
-    album: "SOUR",
+    name: "Who You Say I Am",
+    artist: "Hillsong Worship",
+    album: "There Is More",
   },
   {
-    name: "Good 4 U",
-    artist: "Olivia Rodrigo",
-    album: "SOUR",
+    name: "Battle Belongs",
+    artist: "Phil Wickham",
+    album: "Hymn of Heaven",
   },
   {
-    name: "Save Your Tears",
-    artist: "The Weeknd",
-    album: "After Hours",
+    name: "The Blessing",
+    artist: "Kari Jobe, Cody Carnes",
+    album: "The Blessing",
   },
   {
-    name: "Peaches",
-    artist: "Justin Bieber",
-    album: "Justice",
+    name: "Build My Life",
+    artist: "Pat Barrett",
+    album: "Pat Barrett",
   },
   {
-    name: "Montero (Call Me By Your Name)",
-    artist: "Lil Nas X",
-    album: "Montero",
+    name: "King of Kings",
+    artist: "Hillsong Worship",
+    album: "Awake",
+  },
+  {
+    name: "I Can Only Imagine",
+    artist: "MercyMe",
+    album: "Almost There",
   },
 ];
 
 function TrackList() {
   return (
     <div className="trackList">
+      <h2>Results</h2>
       {trackList.map((track) => {
-        return <Track track={track} key={track.name}></Track>;
+        return (
+          <div>
+            <Track track={track} key={track.name}></Track>
+          </div>
+        );
       })}
     </div>
   );
