@@ -1,9 +1,9 @@
 import React from "react";
 
-const SearchButton = () => {
+const SearchButton = ({ name }) => {
   return (
     <div>
-      <button className="search-button">Go</button>
+      <button className="search-button">{name}</button>
     </div>
   );
 };
