@@ -1,17 +1,17 @@
 .track-card {
   display: flex;
   flex-direction: column;
-  justify-content:left;
+  justify-content: flex-start; 
   background-color: rgb(52, 0, 84);
   font-size: 20px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-weight: 800;
   color: white;
-max-width: 600px; /* Width of each card */
+  max-width: 600px; 
   border-radius: 8px;
-  box-shadow: 0 2px 8px    rgb(163, 100, 202);
+  box-shadow: 0 2px 8px rgb(163, 100, 202);
   padding: 8px;
-  margin: 16px; 
+  margin: 16px;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
@@ -35,4 +35,14 @@ max-width: 600px; /* Width of each card */
   margin: 2px 0;
   text-align: left;
   font-size: 15px;
+}
+
+.track-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.plus-icon {
+  margin-left: auto;
 }

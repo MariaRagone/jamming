@@ -70,13 +70,6 @@ const PlayList = () => {
         ></input>
       </form>
       <h2>{playListName}</h2>
-      {trackList.map((track) => {
-        return (
-          <div>
-            <Track track={track} key={track.name}></Track>
-          </div>
-        );
-      })}
     </div>
   );
 };
