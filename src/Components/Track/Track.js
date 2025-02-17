@@ -5,7 +5,7 @@ const Track = ({ track }) => {
   console.log(track);
   return (
     <div className="track-card">
-      <h2>{track.name}</h2>
+      <h1>{track.name}</h1>
       <p>
         {track.artist} | {track.album}
       </p>

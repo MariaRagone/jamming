@@ -1,12 +1,13 @@
 import React from "react";
 import "./ResultsContainer.css";
-import Track from "../Track/Track";
 import SearchResults from "../SearchResults/SearchResults";
+import SavedTrackList from "../TrackList/SavedTrackList";
 
 const ResultsContainer = () => {
   return (
     <div className="results-container">
-      <SearchResults></SearchResults>
+      <SearchResults />
+      <SavedTrackList />
     </div>
   );
 };
