@@ -1,11 +1,11 @@
 import React from "react";
 import "./Home.css";
-import TrackList from "../Tracklist/Tracklist";
+import SearchResults from "../SearchResults/SearchResults";
 
 const Home = () => {
   return (
     <div>
-      <TrackList />
+      <SearchResults />
     </div>
   );
 };
