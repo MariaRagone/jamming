@@ -1,13 +1,13 @@
 import React from "react";
 import "./ResultsContainer.css";
 import SearchResults from "../SearchResults/SearchResults";
-import SavedTrackList from "../TrackList/SavedTrackList";
+import PlayList from "../PlayList/PlayList";
 
 const ResultsContainer = () => {
   return (
     <div className="results-container">
       <SearchResults />
-      <SavedTrackList />
+      <PlayList />
     </div>
   );
 };
