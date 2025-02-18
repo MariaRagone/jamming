@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import "./Home.css";
-import SearchResults from "../SearchResults/SearchResults";
 import ResultsContainer from "../ResultsContainer/ResultsContainer";
 
-const Home = () => {
+const Home = ({ resultsList }) => {
+  const addTrackToPlaylist = (resultsList, playList, trackToAdd) => {
+    playList.push(trackToAdd);
+  };
+
   const addTrack = (track) => {
     setPlayListTrack((playListTracks) => {
       if (
@@ -33,7 +36,12 @@ const Home = () => {
   };
   return (
     <div>
-      <ResultsContainer addTrack={addTrack} removeTrack={removeTrack} />
+      <ResultsContainer
+        resultsList={resultsList}
+        tracks={playListTracks}
+        addTrack={addTrack}
+        removeTrack={removeTrack}
+      />
     </div>
   );
 };

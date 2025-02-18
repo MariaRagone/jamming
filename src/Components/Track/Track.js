@@ -11,11 +11,12 @@ const Track = ({ track, addTrack, removeTrack }) => {
         <h1>{track.name}</h1>
         <span className="plus-icon">
           <FontAwesomeIcon
+            className="icon"
             icon={faPlus}
             addTrack={addTrack}
             onClick={() => addTrack(track)}
           />
-          {/* <FontAwesomeIcon
+          {/* <FontAwesomeIcon className="icon"
             icon={faMinus}
             removeTrack={removeTrack}
             onClick={() => removeTrack(track)}

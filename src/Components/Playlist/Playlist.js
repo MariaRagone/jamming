@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./PlayList.css";
 import Track from "../Track/Track";
 
-const PlayList = ({ tracks, removeTrack }) => {
+const PlayList = ({ playListTracks = [], removeTrack }) => {
   const [playListName, setPlayListName] = useState("");
   return (
     <div className="play-list">
@@ -18,14 +18,16 @@ const PlayList = ({ tracks, removeTrack }) => {
       </form>
       <h2>{playListName}</h2>
 
-      {/* {tracks.map((track) => {
+      {/* {playListTracks.map((track, index) => {
         return (
           <div>
             <Track
               removeTrack={removeTrack}
-              track={track}
+              tracks={playListTracks}
               key={track.name}
-            ></Track>
+            >
+              {track.name}
+            </Track>
           </div>
         );
       })} */}
@@ -34,5 +36,3 @@ const PlayList = ({ tracks, removeTrack }) => {
 };
 
 export default PlayList;
-
-/* this is where the tracks will go when you add them to your saved list */
