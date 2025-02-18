@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 import "./Track.css";
 
-const Track = ({ track, addTrack }) => {
+const Track = ({ track, addTrack, removeTrack }) => {
   console.log(track);
   return (
     <div className="track-card">
@@ -15,6 +15,11 @@ const Track = ({ track, addTrack }) => {
             addTrack={addTrack}
             onClick={() => addTrack(track)}
           />
+          {/* <FontAwesomeIcon
+            icon={faMinus}
+            removeTrack={removeTrack}
+            onClick={() => removeTrack(track)}
+          /> */}
         </span>
       </div>
       <p>

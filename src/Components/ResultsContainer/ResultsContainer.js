@@ -3,11 +3,11 @@ import "./ResultsContainer.css";
 import SearchResults from "../SearchResults/SearchResults";
 import PlayList from "../PlayList/PlayList";
 
-const ResultsContainer = ({ addTrack }) => {
+const ResultsContainer = ({ addTrack, removeTrack }) => {
   return (
     <div className="results-container">
       <SearchResults addTrack={addTrack} />
-      <PlayList />
+      <PlayList removeTrack={removeTrack} />
     </div>
   );
 };

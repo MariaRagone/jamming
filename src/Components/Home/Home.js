@@ -33,7 +33,7 @@ const Home = () => {
   };
   return (
     <div>
-      <ResultsContainer addTrack={addTrack} />
+      <ResultsContainer addTrack={addTrack} removeTrack={removeTrack} />
     </div>
   );
 };
