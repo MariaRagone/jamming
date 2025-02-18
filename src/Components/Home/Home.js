@@ -4,6 +4,20 @@ import SearchResults from "../SearchResults/SearchResults";
 import ResultsContainer from "../ResultsContainer/ResultsContainer";
 
 const Home = () => {
+  const addTrack = (track) => {
+    setPlayListTrack((playListTracks) => {
+      if (
+        playListTracks.some(
+          (exhistingTrack) => exhistingTrack.name === track.name
+        )
+      ) {
+        alert("You already added this track to the playlist.");
+        return playListTracks;
+      }
+
+      return [track, ...playListTracks];
+    });
+  };
   const [playListTracks, setPlayListTrack] = useState([
     {
       name: "name",
@@ -11,20 +25,16 @@ const Home = () => {
       album: "album",
     },
   ]);
-  const addTrack = (track) => {
-    setPlayListTrack((playList) => [track, ...[playListTracks]]);
-  };
 
-  const removeTrack = (trackNameToRemove) => {
+  const removeTrack = (trackToRemove) => {
     setPlayListTrack((tracks) =>
-      playListTracks.filter((track) => track.name !== trackNameToRemove)
+      playListTracks.filter((track) => track.name !== trackToRemove)
     );
   };
   return (
     <div>
-      <ResultsContainer />
+      <ResultsContainer addTrack={addTrack} />
     </div>
   );
 };
-
 export default Home;

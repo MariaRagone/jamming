@@ -3,10 +3,10 @@ import "./ResultsContainer.css";
 import SearchResults from "../SearchResults/SearchResults";
 import PlayList from "../PlayList/PlayList";
 
-const ResultsContainer = () => {
+const ResultsContainer = ({ addTrack }) => {
   return (
     <div className="results-container">
-      <SearchResults />
+      <SearchResults addTrack={addTrack} />
       <PlayList />
     </div>
   );

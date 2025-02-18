@@ -55,14 +55,14 @@ const resultsList = [
   },
 ];
 
-function SearchResults() {
+function SearchResults({ addTrack }) {
   return (
     <div className="search-results">
       <h2>Results</h2>
       {resultsList.map((track) => {
         return (
           <div>
-            <Track track={track} key={track.name}></Track>
+            <Track addTrack={addTrack} track={track} key={track.name}></Track>
           </div>
         );
       })}
