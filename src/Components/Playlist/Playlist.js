@@ -4,7 +4,13 @@ import Track from "../Track/Track";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus } from "@fortawesome/free-solid-svg-icons";
 
-const PlayList = ({ resultsList, playList, addTrack, removeTrack }) => {
+const PlayList = ({
+  resultsList,
+  track,
+  playList,
+  addTrackToPlayList,
+  removeTrackFromPlaylist,
+}) => {
   const [playListName, setPlayListName] = useState("");
   return (
     <div className="play-list">
@@ -13,6 +19,7 @@ const PlayList = ({ resultsList, playList, addTrack, removeTrack }) => {
           onChange={(e) => {
             setPlayListName(e.target.value);
           }}
+          autoFocus
           value={playListName}
           type="text"
           placeholder="enter a playlist name..."
@@ -26,8 +33,8 @@ const PlayList = ({ resultsList, playList, addTrack, removeTrack }) => {
               <Track
                 track={track}
                 resultsList={resultsList}
-                removeTrack={removeTrack}
-                addTrack={addTrack}
+                removeTrackFromPlaylist={removeTrackFromPlaylist}
+                addTrackToPlayList={addTrackToPlayList}
                 playList={playList}
               ></Track>
             </div>

@@ -5,7 +5,7 @@ import ResultsContainer from "../ResultsContainer/ResultsContainer";
 const Home = ({ resultsList }) => {
   const [playList, setPlayList] = useState([]);
 
-  const addTrack = (trackToAdd) => {
+  const addTrackToPlayList = (trackToAdd, trackToRemove) => {
     setPlayList((playList) => {
       if (
         playList.some((existingTrack) => existingTrack.id === trackToAdd.id)
@@ -14,23 +14,23 @@ const Home = ({ resultsList }) => {
         return playList;
       }
 
-      // playList.push(trackToAdd);
       return [...playList, trackToAdd];
     });
   };
 
-  const removeTrack = (trackToRemove) => {
+  const removeTrackFromPlaylist = (trackToRemove) => {
     setPlayList((tracks) =>
       playList.filter((track) => track.id !== trackToRemove.id)
     );
   };
+
   return (
     <div>
       <ResultsContainer
         resultsList={resultsList}
         playList={playList}
-        addTrack={addTrack}
-        removeTrack={removeTrack}
+        addTrackToPlayList={addTrackToPlayList}
+        removeTrackFromPlaylist={removeTrackFromPlaylist}
       />
     </div>
   );

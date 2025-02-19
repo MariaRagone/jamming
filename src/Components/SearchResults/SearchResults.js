@@ -54,7 +54,12 @@ import Track from "../Track/Track";
 //     album: "Almost There",
 //   },
 // ];
-const SearchResults = ({ resultsList, addTrack, removeTrack, playList }) => {
+const SearchResults = ({
+  resultsList,
+  addTrackToPlayList,
+  removeTrackFromPlaylist,
+  playList,
+}) => {
   return (
     <div className="search-results">
       <h2>Results</h2>
@@ -64,8 +69,8 @@ const SearchResults = ({ resultsList, addTrack, removeTrack, playList }) => {
             <Track
               track={track}
               resultsList={resultsList}
-              addTrack={addTrack}
-              removeTrack={removeTrack}
+              addTrackToPlayList={addTrackToPlayList}
+              removeTrackFromPlaylist={removeTrackFromPlaylist}
               playList={playList}
             ></Track>
           </div>

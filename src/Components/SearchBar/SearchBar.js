@@ -5,6 +5,12 @@ import Button from "../Buttons/Button";
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
+  const handleButtonClick = (e) => {
+    e.preventDefault();
+    alert(`Search Term: ${searchTerm}`);
+    console.log(searchTerm);
+  };
+
   return (
     <div className="search-bar-area">
       <form>
@@ -16,23 +22,7 @@ const SearchBar = () => {
           type="text"
           placeholder="Search for a song, artist, or album..."
         ></input>
-        {/* <Button
-          name={"Find It!"}
-          onClick={(e) => {
-            e.preventDefault();
-            console.log(searchTerm);
-          }}
-        /> */}
-
-        <button
-          type="submit"
-          onClick={() => {
-            alert(`
-            Search Term: ${searchTerm}`);
-          }}
-        >
-          Find It
-        </button>
+        <Button type="submit" name={"Find It!"} onClick={handleButtonClick} />
       </form>
     </div>
   );

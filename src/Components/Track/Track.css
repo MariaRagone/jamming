@@ -16,8 +16,8 @@
 }
 
 .icon {
-  font-size: 25px;
   margin-left: auto;
+  font-size: 25px;
 }
 
 .icon:hover {
@@ -36,6 +36,13 @@
   color: rgb(255, 255, 255);
   text-align: left;
 }
+.added-track-card h1 {
+  font-size: 24px;
+  padding-bottom: 4px;
+  margin: 8px 0;
+  color: rgb(255, 255, 255);
+  text-align: left;
+}
 
 .track-card p {
   color: rgb(163, 100, 202);
@@ -43,10 +50,33 @@
   text-align: left;
   font-size: 15px;
 }
+.added-track-card p {
+  color: rgb(163, 100, 202);
+  margin: 2px 0;
+  text-align: left;
+  font-size: 15px;
+}
 
-.track-header {
+.track-header{
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+.added-track-card {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; 
+  background-color: rgb(89, 20, 132);
+  font-size: 20px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 800;
+  color: white;
+  max-width: 400px; 
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgb(163, 100, 202);
+  padding: 8px;
+  margin: 16px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
