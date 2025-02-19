@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./PlayList.css";
 import Track from "../Track/Track";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMinus } from "@fortawesome/free-solid-svg-icons";
 
 const PlayList = ({ resultsList, playList, addTrack, removeTrack }) => {
   const [playListName, setPlayListName] = useState("");
@@ -20,11 +22,11 @@ const PlayList = ({ resultsList, playList, addTrack, removeTrack }) => {
       <div>
         {playList.map((track) => {
           return (
-            <div>
+            <div key={track.name}>
               <Track
-                key={track.name}
                 track={track}
                 resultsList={resultsList}
+                removeTrack={removeTrack}
                 addTrack={addTrack}
               ></Track>
             </div>

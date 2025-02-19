@@ -10,9 +10,7 @@ const Home = ({ resultsList }) => {
   const addTrack = (trackToAdd) => {
     setPlayList((playList) => {
       if (
-        playList.some(
-          (exhistingTrack) => exhistingTrack.name === trackToAdd.name
-        )
+        playList.some((existingTrack) => existingTrack.name === trackToAdd.name)
       ) {
         alert("You already added this track to the playlist.");
         return playList;
@@ -23,18 +21,18 @@ const Home = ({ resultsList }) => {
     });
   };
 
-  // const removeTrack = (trackToRemove) => {
-  //   setPlayListTrack((tracks) =>
-  //     playListTracks.filter((track) => track.name !== trackToRemove)
-  //   );
-  // };
+  const removeTrack = (trackToRemove) => {
+    setPlayList((tracks) =>
+      playList.filter((track) => track.name !== trackToRemove)
+    );
+  };
   return (
     <div>
       <ResultsContainer
         resultsList={resultsList}
         playList={playList}
         addTrack={addTrack}
-        // removeTrack={removeTrack}
+        removeTrack={removeTrack}
       />
     </div>
   );
