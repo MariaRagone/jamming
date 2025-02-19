@@ -22,12 +22,13 @@ const PlayList = ({ resultsList, playList, addTrack, removeTrack }) => {
       <div>
         {playList.map((track) => {
           return (
-            <div key={track.name}>
+            <div key={track.id}>
               <Track
                 track={track}
                 resultsList={resultsList}
                 removeTrack={removeTrack}
                 addTrack={addTrack}
+                playList={playList}
               ></Track>
             </div>
           );

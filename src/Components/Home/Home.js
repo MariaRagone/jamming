@@ -5,25 +5,23 @@ import ResultsContainer from "../ResultsContainer/ResultsContainer";
 const Home = ({ resultsList }) => {
   const [playList, setPlayList] = useState([]);
 
-  console.log(playList);
-
   const addTrack = (trackToAdd) => {
     setPlayList((playList) => {
       if (
-        playList.some((existingTrack) => existingTrack.name === trackToAdd.name)
+        playList.some((existingTrack) => existingTrack.id === trackToAdd.id)
       ) {
         alert("You already added this track to the playlist.");
         return playList;
       }
 
       // playList.push(trackToAdd);
-      return [trackToAdd, ...playList];
+      return [...playList, trackToAdd];
     });
   };
 
   const removeTrack = (trackToRemove) => {
     setPlayList((tracks) =>
-      playList.filter((track) => track.name !== trackToRemove)
+      playList.filter((track) => track.id !== trackToRemove.id)
     );
   };
   return (

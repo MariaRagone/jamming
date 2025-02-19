@@ -12,15 +12,17 @@ const Track = ({ playList = [], track, addTrack, removeTrack }) => {
     <div className="track-card">
       <div className="track-header">
         <h1>{track.name}</h1>
-        <span className="plus-icon">
+        <span className="icon">
           {isInPlayList ? (
             <FontAwesomeIcon
+              key={track.id}
               className="icon"
               icon={faMinus}
               onClick={() => removeTrack(track)}
             />
           ) : (
             <FontAwesomeIcon
+              key={track.id}
               className="icon"
               icon={faPlus}
               onClick={() => addTrack(track)}
