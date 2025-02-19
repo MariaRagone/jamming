@@ -3,44 +3,38 @@ import "./Home.css";
 import ResultsContainer from "../ResultsContainer/ResultsContainer";
 
 const Home = ({ resultsList }) => {
-  const addTrackToPlaylist = (resultsList, playList, trackToAdd) => {
-    playList.push(trackToAdd);
-  };
+  const [playList, setPlayList] = useState([]);
 
-  const addTrack = (track) => {
-    setPlayListTrack((playListTracks) => {
+  console.log(playList);
+
+  const addTrack = (trackToAdd) => {
+    setPlayList((playList) => {
       if (
-        playListTracks.some(
-          (exhistingTrack) => exhistingTrack.name === track.name
+        playList.some(
+          (exhistingTrack) => exhistingTrack.name === trackToAdd.name
         )
       ) {
         alert("You already added this track to the playlist.");
-        return playListTracks;
+        return playList;
       }
 
-      return [track, ...playListTracks];
+      // playList.push(trackToAdd);
+      return [trackToAdd, ...playList];
     });
   };
-  const [playListTracks, setPlayListTrack] = useState([
-    {
-      name: "name",
-      artist: "artist",
-      album: "album",
-    },
-  ]);
 
-  const removeTrack = (trackToRemove) => {
-    setPlayListTrack((tracks) =>
-      playListTracks.filter((track) => track.name !== trackToRemove)
-    );
-  };
+  // const removeTrack = (trackToRemove) => {
+  //   setPlayListTrack((tracks) =>
+  //     playListTracks.filter((track) => track.name !== trackToRemove)
+  //   );
+  // };
   return (
     <div>
       <ResultsContainer
         resultsList={resultsList}
-        tracks={playListTracks}
+        playList={playList}
         addTrack={addTrack}
-        removeTrack={removeTrack}
+        // removeTrack={removeTrack}
       />
     </div>
   );

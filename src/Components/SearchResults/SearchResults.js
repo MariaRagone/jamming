@@ -54,7 +54,7 @@ import Track from "../Track/Track";
 //     album: "Almost There",
 //   },
 // ];
-function SearchResults({ resultsList, addTrack }) {
+const SearchResults = ({ resultsList, addTrack }) => {
   return (
     <div className="search-results">
       <h2>Results</h2>
@@ -62,15 +62,15 @@ function SearchResults({ resultsList, addTrack }) {
         return (
           <div>
             <Track
+              key={track.name}
+              track={track}
               resultsList={resultsList}
               addTrack={addTrack}
-              track={track}
-              key={track.name}
             ></Track>
           </div>
         );
       })}
     </div>
   );
-}
+};
 export default SearchResults;

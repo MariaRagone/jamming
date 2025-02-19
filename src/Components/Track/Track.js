@@ -4,7 +4,6 @@ import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 import "./Track.css";
 
 const Track = ({ track, addTrack, removeTrack }) => {
-  console.log(track);
   return (
     <div className="track-card">
       <div className="track-header">
