@@ -1,24 +1,22 @@
   
-.search-button {
-  
-    color: white;
-    background-color: rgb(163, 100, 202);
-    border-radius: 50px;
-    width: 150px;
-    height: 50px;
-    font-size: 30px;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  }
+.button {
+  color: white;
+  background-color: rgb(163, 100, 202);
+  border-radius: 50px;
+  width: 150px;
+  height: 40px;
+  font-size: 20px;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 8px rgb(163, 100, 202);
 
-  .save-to-spotify {
-    color: white;
-    background-color: rgb(163, 100, 202);
-    margin: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    border-radius: 5px;
-    font-size: 20px;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  }
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.button:hover{
+  color:rgb(255, 255, 255);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  opacity: .5;
+  cursor: pointer;
+}
+
