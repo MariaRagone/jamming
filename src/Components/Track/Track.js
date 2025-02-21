@@ -5,9 +5,11 @@ import "./Track.css";
 
 const Track = ({
   playList = [],
+  userSpotifyList = [],
   track,
   addTrackToPlayList,
   removeTrackFromPlaylist,
+  addPlayListToSpotify,
 }) => {
   const isInPlayList = playList.some(
     (existingTrack) => existingTrack.id === track.id

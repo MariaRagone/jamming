@@ -4,16 +4,10 @@ import ResultsContainer from "../ResultsContainer/ResultsContainer";
 
 const Home = ({ resultsList }) => {
   const [playList, setPlayList] = useState([]);
+  const [userSpotifyList, setUserSpotifyList] = useState([]);
 
-  const addTrackToPlayList = (trackToAdd, trackToRemove) => {
+  const addTrackToPlayList = (trackToAdd) => {
     setPlayList((playList) => {
-      if (
-        playList.some((existingTrack) => existingTrack.id === trackToAdd.id)
-      ) {
-        alert("You already added this track to the playlist.");
-        return playList;
-      }
-
       return [...playList, trackToAdd];
     });
   };
@@ -24,6 +18,12 @@ const Home = ({ resultsList }) => {
     );
   };
 
+  const addPlayListToSpotify = (trackToAdd) => {
+    setUserSpotifyList((userSpotifyList) => {
+      return [...userSpotifyList, trackToAdd];
+    });
+  };
+
   return (
     <div>
       <ResultsContainer
@@ -31,6 +31,8 @@ const Home = ({ resultsList }) => {
         playList={playList}
         addTrackToPlayList={addTrackToPlayList}
         removeTrackFromPlaylist={removeTrackFromPlaylist}
+        addPlayListToSpotify={addPlayListToSpotify}
+        userSpotifyList={userSpotifyList}
       />
     </div>
   );

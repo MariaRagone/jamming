@@ -8,7 +8,7 @@ const SearchBar = () => {
   const handleButtonClick = (e) => {
     e.preventDefault();
     alert(`Search Term: ${searchTerm}`);
-    console.log(searchTerm);
+    // console.log(searchTerm);
   };
 
   return (

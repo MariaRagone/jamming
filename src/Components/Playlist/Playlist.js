@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import "./PlayList.css";
 import Track from "../Track/Track";
 import Button from "../Buttons/Button";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMinus } from "@fortawesome/free-solid-svg-icons";
-import SearchResults from "../SearchResults/SearchResults";
+import SpotifyPlayList from "../SpotifyPlayList/SpotifyPlayList";
 
 const PlayList = ({
   resultsList,
@@ -12,14 +10,10 @@ const PlayList = ({
   playList,
   addTrackToPlayList,
   removeTrackFromPlaylist,
+  addPlayListToSpotify,
+  userSpotifyList,
 }) => {
   const [playListName, setPlayListName] = useState("");
-  const [saveToSpotify, setSaveToSpotify] = useState([]);
-
-  const handleButtonClick = (e) => {
-    e.preventDefault();
-    alert(`Saved!`);
-  };
 
   return (
     <div className="play-list">
@@ -45,6 +39,7 @@ const PlayList = ({
                 removeTrackFromPlaylist={removeTrackFromPlaylist}
                 addTrackToPlayList={addTrackToPlayList}
                 playList={playList}
+                userSpotifyList={userSpotifyList}
               ></Track>
             </div>
           );
@@ -52,8 +47,11 @@ const PlayList = ({
         <Button
           type="submit"
           name={"Save to Spotify!"}
-          onClick={handleButtonClick}
-        ></Button>
+          onClick={() => addPlayListToSpotify(playList)}
+        >
+          {console.log(`spotify playlist: ${userSpotifyList}`)}
+          {/* {console.log(`playlist: ${playList}`)} */}
+        </Button>
       </div>
     </div>
   );

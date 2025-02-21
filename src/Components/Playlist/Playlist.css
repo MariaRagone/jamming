@@ -28,6 +28,7 @@
   font-weight: 800;
   height: auto; 
   flex-shrink: 1;
+  margin-bottom: 10px;
 }
 
 .play-list h2 {
