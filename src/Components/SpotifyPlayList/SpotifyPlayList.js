@@ -3,7 +3,6 @@ import Track from "../Track/Track";
 
 const SpotifyPlayList = ({
   resultsList,
-  track,
   playList,
   addTrackToPlayList,
   removeTrackFromPlaylist,
@@ -14,9 +13,9 @@ const SpotifyPlayList = ({
     <div className="play-list">
       <h2>Spotify List</h2>{" "}
       <div>
-        {userSpotifyList.some((track) => {
+        {userSpotifyList.map((track) => {
           return (
-            <div key={track.uri}>
+            <div key={track.id}>
               <Track
                 track={track}
                 resultsList={resultsList}

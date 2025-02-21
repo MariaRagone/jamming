@@ -2,16 +2,14 @@ import React, { useState } from "react";
 import "./PlayList.css";
 import Track from "../Track/Track";
 import Button from "../Buttons/Button";
-import SpotifyPlayList from "../SpotifyPlayList/SpotifyPlayList";
 
 const PlayList = ({
   resultsList,
-  track,
   playList,
   addTrackToPlayList,
   removeTrackFromPlaylist,
   addPlayListToSpotify,
-  userSpotifyList,
+  userSpotifyList = [],
 }) => {
   const [playListName, setPlayListName] = useState("");
 
@@ -48,10 +46,7 @@ const PlayList = ({
           type="submit"
           name={"Save to Spotify!"}
           onClick={() => addPlayListToSpotify(playList)}
-        >
-          {console.log(`spotify playlist: ${userSpotifyList}`)}
-          {/* {console.log(`playlist: ${playList}`)} */}
-        </Button>
+        ></Button>
       </div>
     </div>
   );
