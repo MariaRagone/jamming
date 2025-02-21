@@ -14,11 +14,10 @@ const SpotifyPlayList = ({
       <h2>Spotify List</h2>
       <div>
         {userSpotifyList.map((track) => {
-          console.log(track.name);
           return (
-            <div key={track.id}>
+            <div key={track.uri}>
               <Track
-                key={track.id}
+                key={track.uri}
                 track={track}
                 resultsList={resultsList}
                 removeTrackFromPlaylist={removeTrackFromPlaylist}

@@ -32,6 +32,11 @@ const Home = ({ resultsList }) => {
         (trackToAdd) =>
           !userSpotifyList.some((track) => track.id === trackToAdd.id)
       );
+      setPlayList((playList) =>
+        playList.filter(
+          (track) => !newTracks.some((newTrack) => newTrack.id === track.id)
+        )
+      );
       return [...userSpotifyList, ...newTracks];
     });
   };
