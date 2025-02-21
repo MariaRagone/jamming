@@ -7,16 +7,18 @@ const SpotifyPlayList = ({
   addTrackToPlayList,
   removeTrackFromPlaylist,
   addPlayListToSpotify,
-  userSpotifyList = [],
+  userSpotifyList,
 }) => {
   return (
     <div className="play-list">
-      <h2>Spotify List</h2>{" "}
+      <h2>Spotify List</h2>
       <div>
         {userSpotifyList.map((track) => {
+          console.log(track.name);
           return (
             <div key={track.id}>
               <Track
+                key={track.id}
                 track={track}
                 resultsList={resultsList}
                 removeTrackFromPlaylist={removeTrackFromPlaylist}

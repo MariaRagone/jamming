@@ -18,9 +18,21 @@ const Home = ({ resultsList }) => {
     );
   };
 
-  const addPlayListToSpotify = (trackToAdd) => {
+  const addPlayListToSpotify = (playList) => {
     setUserSpotifyList((userSpotifyList) => {
-      return [...userSpotifyList, trackToAdd];
+      const duplicateTracks = playList.filter((trackToAdd) =>
+        userSpotifyList.some((track) => track.id === trackToAdd.id)
+      );
+      if (duplicateTracks.length > 0) {
+        alert(
+          "Some tracks are already in your Spotify playlist and won't be added again."
+        );
+      }
+      const newTracks = playList.filter(
+        (trackToAdd) =>
+          !userSpotifyList.some((track) => track.id === trackToAdd.id)
+      );
+      return [...userSpotifyList, ...newTracks];
     });
   };
 
@@ -29,10 +41,10 @@ const Home = ({ resultsList }) => {
       <ResultsContainer
         resultsList={resultsList}
         playList={playList}
+        userSpotifyList={userSpotifyList}
         addTrackToPlayList={addTrackToPlayList}
         removeTrackFromPlaylist={removeTrackFromPlaylist}
         addPlayListToSpotify={addPlayListToSpotify}
-        userSpotifyList={userSpotifyList}
       />
     </div>
   );

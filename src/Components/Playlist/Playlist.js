@@ -9,7 +9,7 @@ const PlayList = ({
   addTrackToPlayList,
   removeTrackFromPlaylist,
   addPlayListToSpotify,
-  userSpotifyList = [],
+  userSpotifyList,
 }) => {
   const [playListName, setPlayListName] = useState("");
 
