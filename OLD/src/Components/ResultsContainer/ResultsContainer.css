@@ -1,0 +1,7 @@
+.results-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: auto; /* Ensure height is auto */
+    overflow: hidden; /* Prevent overflow issues */
+  }
