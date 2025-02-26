@@ -8,8 +8,11 @@ import {
   clientId,
 } from "./SpotifyApi";
 
-export default function SpotifyAuth({ setAccessToken, accessToken }) {
-  //   const encodedRedirectUri = encodeURIComponent(redirectUri);
+export default function SpotifyAuth({
+  setAccessToken,
+  accessToken,
+  setUserName,
+}) {
   const accessUrl = `${AuthEndpoint}?client_id=${clientId}&response_type=${responseType}&scope=playlist-modify-public&redirect_uri=${redirectUri}`;
 
   useEffect(() => {
@@ -24,13 +27,34 @@ export default function SpotifyAuth({ setAccessToken, accessToken }) {
       token = ACCESS_TOKEN;
       setAccessToken(token);
     }
-  }, [accessToken, setAccessToken]);
+
+    if (token) {
+      const fetchProfile = async (accessToken) => {
+        try {
+          const result = await fetch(`https://api.spotify.com/v1/me`, {
+            method: "GET",
+            headers: {
+              authorization: `Bearer ${accessToken}`,
+            },
+          });
+          const data = await result.json();
+          setUserName(data.display_name);
+        } catch (error) {
+          console.error("Error fetching user profile:", error);
+        }
+      };
+
+      fetchProfile(token);
+    }
+  }, [accessToken, setAccessToken, setUserName]);
 
   function logout(e) {
     e.preventDefault();
     setAccessToken("");
+    setUserName("");
     window.localStorage.setItem("token", null);
   }
+
   function login(e) {
     e.preventDefault();
     window.location.href = accessUrl;
@@ -39,9 +63,7 @@ export default function SpotifyAuth({ setAccessToken, accessToken }) {
   return (
     <>
       {!accessToken ? (
-        <>
-          <Button type="submit" name={"Log In"} onClick={login}></Button>
-        </>
+        <Button type="submit" name={"Log In"} onClick={login}></Button>
       ) : (
         <Button type="submit" name={"Log Out"} onClick={logout}></Button>
       )}
@@ -52,4 +74,5 @@ export default function SpotifyAuth({ setAccessToken, accessToken }) {
 SpotifyAuth.propTypes = {
   setAccessToken: propTypes.setAccessToken,
   accessToken: propTypes.accessToken,
+  setUserName: propTypes.func.isRequired,
 };

@@ -2,12 +2,10 @@ import { useState } from "react";
 import "./Home.css";
 import ResultsContainer from "../ResultsContainer/ResultsContainer";
 import propTypes from "../propTypes";
-import SpotifyAuth from "../../assets/SpotifyAuth";
 
 const Home = ({ resultsList }) => {
   const [playList, setPlayList] = useState([]);
   const [userSpotifyList, setUserSpotifyList] = useState([]);
-  const [accessToken, setAccessToken] = useState("");
 
   const addTrackToPlayList = (trackToAdd) => {
     setPlayList((playList) => {
@@ -46,12 +44,8 @@ const Home = ({ resultsList }) => {
 
   return (
     <div className="home">
-      <h2> Logged in as:</h2>
       <span id="id"></span>
-      <SpotifyAuth
-        accessToken={accessToken}
-        setAccessToken={setAccessToken}
-      ></SpotifyAuth>
+
       <ResultsContainer
         resultsList={resultsList}
         playList={playList}
