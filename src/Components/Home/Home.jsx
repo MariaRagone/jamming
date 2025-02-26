@@ -43,7 +43,10 @@ const Home = ({ resultsList }) => {
   };
 
   return (
-    <div>
+    <div className="home">
+      <h2> Logged in as:</h2>
+      <span id="id"></span>
+
       <ResultsContainer
         resultsList={resultsList}
         playList={playList}

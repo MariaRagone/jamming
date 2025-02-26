@@ -5,10 +5,14 @@ const trackPropType = PropTypes.shape({
   name: PropTypes.string.isRequired,
   artist: PropTypes.string.isRequired,
   album: PropTypes.string.isRequired,
-  uri: PropTypes.number.isRequired,
+  uri: PropTypes.string.isRequired,
 });
 
+const setAccessTokenPropType = PropTypes.func.isRequired;
+
 const propTypes = {
+  setAccessToken: setAccessTokenPropType,
+  accessToken: PropTypes.string.isRequired,
   track: trackPropType,
   resultsList: PropTypes.arrayOf(trackPropType).isRequired,
   playList: PropTypes.arrayOf(trackPropType).isRequired,
