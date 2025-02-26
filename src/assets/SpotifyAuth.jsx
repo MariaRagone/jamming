@@ -30,12 +30,16 @@ export default function SpotifyAuth({ setAccessToken, accessToken }) {
     setAccessToken("");
     window.localStorage.setItem("token", null);
   }
+  function login(e) {
+    e.preventDefault();
+    window.location.href = accessUrl;
+  }
 
   return (
     <>
       {!accessToken ? (
         <>
-          <Button type="submit" name={"Log In"} href={accessUrl}></Button>
+          <Button type="submit" name={"Log In"} onClick={login}></Button>
         </>
       ) : (
         <Button type="submit" name={"Log Out"} onClick={logout}></Button>
