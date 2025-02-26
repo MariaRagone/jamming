@@ -74,5 +74,5 @@ export default function SpotifyAuth({
 SpotifyAuth.propTypes = {
   setAccessToken: propTypes.setAccessToken,
   accessToken: propTypes.accessToken,
-  setUserName: propTypes.func.isRequired,
+  setUserName: propTypes.accessToken,
 };
