@@ -9,6 +9,7 @@ import {
 } from "./SpotifyApi";
 
 export default function SpotifyAuth({ setAccessToken, accessToken }) {
+  //   const encodedRedirectUri = encodeURIComponent(redirectUri);
   const accessUrl = `${AuthEndpoint}?client_id=${clientId}&response_type=${responseType}&scope=playlist-modify-public&redirect_uri=${redirectUri}`;
 
   useEffect(() => {
