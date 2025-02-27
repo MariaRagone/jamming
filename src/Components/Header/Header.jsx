@@ -12,7 +12,7 @@ function Header() {
         ja<span className="highlight">mmm</span>ing
       </div>
       <div className="login">
-        <h2>Hi {userName ? userName : "there"}</h2>
+        <h6>Hi {userName ? userName : "there"}</h6>
         <SpotifyAuth
           accessToken={accessToken}
           setAccessToken={setAccessToken}
