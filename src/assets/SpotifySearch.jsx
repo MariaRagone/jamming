@@ -3,7 +3,6 @@ export const getAlbumTracks = async (
   accessToken,
   setTrackResultList
 ) => {
-  //   console.log(accessToken);
   if (!searchTerm) {
     alert("Please enter a search term!");
     return;
@@ -30,6 +29,5 @@ export const getAlbumTracks = async (
   setTrackResultList(songs);
   console.log(data);
 
-  //   console.log(accessToken);
   return data;
 };
