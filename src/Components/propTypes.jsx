@@ -9,7 +9,10 @@ const trackPropType = PropTypes.shape({
 });
 
 const propTypes = {
+  searchTerm: PropTypes.string,
+  setSearchTerm: PropTypes.func,
   setAccessToken: PropTypes.func.isRequired,
+  data: PropTypes.string,
   accessToken: PropTypes.string.isRequired,
   track: trackPropType,
   resultsList: PropTypes.arrayOf(trackPropType).isRequired,

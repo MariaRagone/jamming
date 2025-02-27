@@ -1,18 +1,21 @@
-import { useState } from "react";
 import propTypes from "../propTypes";
 import "./SearchBar.css";
 import Button from "../Buttons/Button";
 import { getAlbumTracks } from "../../assets/SpotifySearch";
 
-const SearchBar = ({ accessToken, trackResultList, setTrackResultList }) => {
-  const [searchTerm, setSearchTerm] = useState("");
+const SearchBar = ({
+  accessToken,
+  searchTerm,
+  setSearchTerm,
+  // trackResultList = [],
+  setTrackResultList,
+}) => {
   const handleButtonClick = (e) => {
     e.preventDefault();
-    // alert(`Search Term: ${searchTerm}`);
-    console.log(`Track Results ${trackResultList}`);
-    getAlbumTracks(searchTerm, accessToken).then((res) => {
-      setTrackResultList(res.albumTracks);
-    });
+    getAlbumTracks(searchTerm, accessToken, setTrackResultList);
+    // console.log(`Track Results ${trackResultList}`);
+    // console.log(`Access Token ${accessToken}`);
+    // console.log(`Search Term ${searchTerm}`);
   };
 
   return (
@@ -38,6 +41,8 @@ const SearchBar = ({ accessToken, trackResultList, setTrackResultList }) => {
 };
 
 SearchBar.propTypes = {
+  searchTerm: propTypes.string,
+  setSearchTerm: propTypes.func,
   trackResultList: propTypes.array,
   setTrackResultList: propTypes.func,
   accessToken: propTypes.accessToken,

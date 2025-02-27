@@ -6,7 +6,7 @@ import SearchBar from "./Components/SearchBar/SearchBar";
 
 const App = () => {
   const [accessToken, setAccessToken] = useState("");
-
+  const [searchTerm, setSearchTerm] = useState("");
   const [trackResultList, setTrackResultList] = useState([]);
   const resultsList = [
     {
@@ -85,9 +85,11 @@ const App = () => {
     <div>
       <Header accessToken={accessToken} setAccessToken={setAccessToken} />
       <SearchBar
-        setTrackResultList={setTrackResultList}
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
         accessToken={accessToken}
         setAccessToken={setAccessToken}
+        setTrackResultList={setTrackResultList}
       />
       <Home resultsList={resultsList} trackResultList={trackResultList} />
     </div>

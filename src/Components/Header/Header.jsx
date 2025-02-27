@@ -3,7 +3,7 @@ import { useState } from "react";
 import propTypes from "../propTypes";
 import SpotifyAuth from "../../assets/SpotifyAuth";
 
-function Header({ accessToken, setAccessToken }) {
+const Header = ({ accessToken, setAccessToken }) => {
   const [userName, setUserName] = useState("");
 
   return (
@@ -21,7 +21,7 @@ function Header({ accessToken, setAccessToken }) {
       </div>
     </div>
   );
-}
+};
 Header.propTypes = {
   setAccessToken: propTypes.setAccessToken,
   accessToken: propTypes.accessToken,
