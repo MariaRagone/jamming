@@ -3,7 +3,7 @@ import "./Home.css";
 import ResultsContainer from "../ResultsContainer/ResultsContainer";
 import propTypes from "../propTypes";
 
-const Home = ({ resultsList }) => {
+const Home = ({ resultsList, trackResultList }) => {
   const [playList, setPlayList] = useState([]);
   const [userSpotifyList, setUserSpotifyList] = useState([]);
 
@@ -48,6 +48,7 @@ const Home = ({ resultsList }) => {
 
       <ResultsContainer
         resultsList={resultsList}
+        trackResultList={trackResultList}
         playList={playList}
         userSpotifyList={userSpotifyList}
         addTrackToPlayList={addTrackToPlayList}
@@ -60,6 +61,7 @@ const Home = ({ resultsList }) => {
 
 Home.propTypes = {
   resultsList: propTypes.resultsList,
+  trackResultList: propTypes.trackResultList,
 };
 
 export default Home;

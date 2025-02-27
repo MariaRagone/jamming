@@ -8,13 +8,13 @@ const trackPropType = PropTypes.shape({
   uri: PropTypes.string.isRequired,
 });
 
-const setAccessTokenPropType = PropTypes.func.isRequired;
-
 const propTypes = {
-  setAccessToken: setAccessTokenPropType,
+  setAccessToken: PropTypes.func.isRequired,
   accessToken: PropTypes.string.isRequired,
   track: trackPropType,
   resultsList: PropTypes.arrayOf(trackPropType).isRequired,
+  trackResultList: PropTypes.arrayOf(trackPropType),
+  setTrackResultList: PropTypes.func.isRequired,
   playList: PropTypes.arrayOf(trackPropType).isRequired,
   userSpotifyList: PropTypes.arrayOf(trackPropType).isRequired,
   addTrackToPlayList: PropTypes.func.isRequired,

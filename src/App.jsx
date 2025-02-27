@@ -1,9 +1,13 @@
+import { useState } from "react";
 import "./App.css";
 import Header from "./Components/Header/Header";
 import Home from "./Components/Home/Home";
 import SearchBar from "./Components/SearchBar/SearchBar";
 
 const App = () => {
+  const [accessToken, setAccessToken] = useState("");
+
+  const [trackResultList, setTrackResultList] = useState([]);
   const resultsList = [
     {
       id: 1,
@@ -79,9 +83,13 @@ const App = () => {
 
   return (
     <div>
-      <Header />
-      <SearchBar />
-      <Home resultsList={resultsList} />
+      <Header accessToken={accessToken} setAccessToken={setAccessToken} />
+      <SearchBar
+        setTrackResultList={setTrackResultList}
+        accessToken={accessToken}
+        setAccessToken={setAccessToken}
+      />
+      <Home resultsList={resultsList} trackResultList={trackResultList} />
     </div>
   );
 };

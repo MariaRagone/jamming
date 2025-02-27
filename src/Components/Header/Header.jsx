@@ -1,9 +1,9 @@
 import "./Header.css";
 import { useState } from "react";
+import propTypes from "../propTypes";
 import SpotifyAuth from "../../assets/SpotifyAuth";
 
-function Header() {
-  const [accessToken, setAccessToken] = useState("");
+function Header({ accessToken, setAccessToken }) {
   const [userName, setUserName] = useState("");
 
   return (
@@ -22,5 +22,8 @@ function Header() {
     </div>
   );
 }
-
+Header.propTypes = {
+  setAccessToken: propTypes.setAccessToken,
+  accessToken: propTypes.accessToken,
+};
 export default Header;

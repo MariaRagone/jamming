@@ -6,6 +6,7 @@ import SpotifyPlayList from "../SpotifyPlayList/SpotifyPlayList";
 
 const ResultsContainer = ({
   resultsList,
+  trackResultList,
   playList,
   addTrackToPlayList,
   removeTrackFromPlaylist,
@@ -16,6 +17,7 @@ const ResultsContainer = ({
     <div className="results-container">
       <SearchResults
         resultsList={resultsList}
+        trackResultList={trackResultList}
         addTrackToPlayList={addTrackToPlayList}
         removeTrackFromPlaylist={removeTrackFromPlaylist}
         playList={playList}
@@ -41,6 +43,7 @@ const ResultsContainer = ({
 
 ResultsContainer.propTypes = {
   resultsList: propTypes.resultsList,
+  trackResultList: propTypes.trackResultList,
   playList: propTypes.playList,
   addTrackToPlayList: propTypes.addTrackToPlayList,
   removeTrackFromPlaylist: propTypes.removeTrackFromPlaylist,
