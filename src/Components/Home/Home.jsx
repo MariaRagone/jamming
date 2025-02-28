@@ -3,7 +3,7 @@ import "./Home.css";
 import ResultsContainer from "../ResultsContainer/ResultsContainer";
 import propTypes from "../propTypes";
 
-const Home = ({ resultsList, trackResultList }) => {
+const Home = ({ trackResultList }) => {
   const [playList, setPlayList] = useState([]);
   const [userSpotifyList, setUserSpotifyList] = useState([]);
 
@@ -47,7 +47,6 @@ const Home = ({ resultsList, trackResultList }) => {
       <span id="id"></span>
 
       <ResultsContainer
-        resultsList={resultsList}
         trackResultList={trackResultList}
         playList={playList}
         userSpotifyList={userSpotifyList}

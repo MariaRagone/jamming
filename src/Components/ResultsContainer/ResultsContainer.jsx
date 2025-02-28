@@ -5,7 +5,6 @@ import PlayList from "../PlayList/PlayList";
 import SpotifyPlayList from "../SpotifyPlayList/SpotifyPlayList";
 
 const ResultsContainer = ({
-  resultsList,
   trackResultList,
   playList,
   addTrackToPlayList,
@@ -16,14 +15,12 @@ const ResultsContainer = ({
   return (
     <div className="results-container">
       <SearchResults
-        resultsList={resultsList}
         trackResultList={trackResultList}
         addTrackToPlayList={addTrackToPlayList}
         removeTrackFromPlaylist={removeTrackFromPlaylist}
         playList={playList}
       />
       <PlayList
-        resultsList={resultsList}
         playList={playList}
         removeTrackFromPlaylist={removeTrackFromPlaylist}
         addTrackToPlayList={addTrackToPlayList}
@@ -31,7 +28,6 @@ const ResultsContainer = ({
         userSpotifyList={userSpotifyList}
       />
       <SpotifyPlayList
-        resultsList={resultsList}
         playList={playList}
         removeTrackFromPlaylist={removeTrackFromPlaylist}
         addPlayListToSpotify={addPlayListToSpotify}

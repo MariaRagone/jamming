@@ -3,7 +3,8 @@ import Track from "../Track/Track";
 import propTypes from "../propTypes";
 
 const SearchResults = ({
-  resultsList,
+  trackResultList,
+  // resultsList,
   addTrackToPlayList,
   removeTrackFromPlaylist,
   playList,
@@ -11,12 +12,12 @@ const SearchResults = ({
   return (
     <div className="search-results">
       <h2>Results</h2>
-      {resultsList.map((track) => {
+      {trackResultList.map((track) => {
         return (
           <div key={track.id}>
             <Track
               track={track}
-              resultsList={resultsList}
+              trackResultList={trackResultList}
               addTrackToPlayList={addTrackToPlayList}
               removeTrackFromPlaylist={removeTrackFromPlaylist}
               playList={playList}
@@ -29,6 +30,8 @@ const SearchResults = ({
 };
 
 SearchResults.propTypes = {
+  trackResultList: propTypes.trackResultList,
+
   resultsList: propTypes.resultsList,
   addTrackToPlayList: propTypes.addTrackToPlayList,
   removeTrackFromPlaylist: propTypes.removeTrackFromPlaylist,
