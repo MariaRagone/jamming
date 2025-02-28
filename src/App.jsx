@@ -88,9 +88,9 @@ const App = () => {
       return {
         id: track.id,
         name: track.name,
-        artist: "MercyMe",
-        album: "Almost There",
-        uri: 10,
+        artist: track.artists[0].name,
+        album: track.album.name,
+        uri: track.album.uri,
       };
     });
     setTrackResultList(mappedTracks);
@@ -120,7 +120,7 @@ const getAlbumTracks = async (searchTerm, accessToken) => {
   }
 
   const result = await fetch(
-    `https://api.spotify.com/v1/search?q=${searchTerm}&type=track&limit=50`,
+    `https://api.spotify.com/v1/search?q=${searchTerm}&type=track&limit=20`,
     {
       headers: {
         Authorization: `Bearer ${accessToken}`,
