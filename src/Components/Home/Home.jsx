@@ -2,8 +2,9 @@ import { useState } from "react";
 import "./Home.css";
 import ResultsContainer from "../ResultsContainer/ResultsContainer";
 import propTypes from "../propTypes";
+import Button from "../Buttons/Button";
 
-const Home = ({ trackResultList }) => {
+const Home = ({ onClick, trackResultList, userProfileDetails }) => {
   const [playList, setPlayList] = useState([]);
   const [userSpotifyList, setUserSpotifyList] = useState([]);
 
@@ -18,7 +19,10 @@ const Home = ({ trackResultList }) => {
       tracks.filter((track) => track.id !== trackToRemove.id)
     );
   };
-
+  const handleButtonClick = (e) => {
+    e.preventDefault();
+    onClick();
+  };
   const addPlayListToSpotify = (playList) => {
     setUserSpotifyList((userSpotifyList) => {
       const duplicateTracks = playList.filter((trackToAdd) =>
@@ -45,7 +49,12 @@ const Home = ({ trackResultList }) => {
   return (
     <div className="home">
       <span id="id"></span>
-
+      <Button
+        type="submit"
+        name={"My Profile"}
+        onClick={handleButtonClick}
+      ></Button>
+      <p>{userProfileDetails.name}</p>
       <ResultsContainer
         trackResultList={trackResultList}
         playList={playList}
@@ -61,6 +70,8 @@ const Home = ({ trackResultList }) => {
 Home.propTypes = {
   resultsList: propTypes.resultsList,
   trackResultList: propTypes.trackResultList,
+  onClick: propTypes.onClick,
+  userProfileDetails: propTypes.userProfileDetails,
 };
 
 export default Home;
