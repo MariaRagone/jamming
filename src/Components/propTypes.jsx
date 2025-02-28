@@ -9,7 +9,9 @@ const trackPropType = PropTypes.shape({
 });
 
 const propTypes = {
+  onClick: PropTypes.func,
   searchTerm: PropTypes.string,
+  getAlbumTracks: PropTypes.func,
   setSearchTerm: PropTypes.func,
   setAccessToken: PropTypes.func.isRequired,
   data: PropTypes.string,

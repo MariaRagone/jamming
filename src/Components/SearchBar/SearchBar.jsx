@@ -1,21 +1,11 @@
 import propTypes from "../propTypes";
 import "./SearchBar.css";
 import Button from "../Buttons/Button";
-import { getAlbumTracks } from "../../assets/SpotifySearch";
 
-const SearchBar = ({
-  accessToken,
-  searchTerm,
-  setSearchTerm,
-  // trackResultList = [],
-  setTrackResultList,
-}) => {
+const SearchBar = ({ searchTerm, setSearchTerm, onClick }) => {
   const handleButtonClick = (e) => {
     e.preventDefault();
-    getAlbumTracks(searchTerm, accessToken, setTrackResultList);
-    // console.log(`Track Results ${trackResultList}`);
-    // console.log(`Access Token ${accessToken}`);
-    // console.log(`Search Term ${searchTerm}`);
+    onClick();
   };
 
   return (
@@ -29,12 +19,7 @@ const SearchBar = ({
           type="text"
           placeholder="Search for a song, artist, or album..."
         ></input>
-        <Button
-          type="submit"
-          name={"Find It!"}
-          onClick={handleButtonClick}
-          accessToken={accessToken}
-        />
+        <Button type="submit" name={"Find It!"} onClick={handleButtonClick} />
       </form>
     </div>
   );
@@ -43,9 +28,6 @@ const SearchBar = ({
 SearchBar.propTypes = {
   searchTerm: propTypes.string,
   setSearchTerm: propTypes.func,
-  trackResultList: propTypes.array,
-  setTrackResultList: propTypes.func,
-  accessToken: propTypes.accessToken,
-  setAccessToken: propTypes.setAccessToken,
+  onClick: propTypes.func,
 };
 export default SearchBar;

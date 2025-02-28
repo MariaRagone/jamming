@@ -81,19 +81,64 @@ const App = () => {
     },
   ];
 
+  const onSearchBarClick = async () => {
+    const tracks = await getAlbumTracks(searchTerm, accessToken);
+    console.log(tracks);
+    const mappedTracks = tracks.map((track) => {
+      return {
+        id: track.id,
+        name: track.name,
+        artist: "MercyMe",
+        album: "Almost There",
+        uri: 10,
+      };
+    });
+    setTrackResultList(mappedTracks);
+  };
+
   return (
     <div>
       <Header accessToken={accessToken} setAccessToken={setAccessToken} />
       <SearchBar
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
-        accessToken={accessToken}
-        setAccessToken={setAccessToken}
-        setTrackResultList={setTrackResultList}
+        onClick={onSearchBarClick}
       />
       <Home resultsList={resultsList} trackResultList={trackResultList} />
     </div>
   );
+};
+
+const getAlbumTracks = async (searchTerm, accessToken) => {
+  if (!searchTerm) {
+    alert("Please enter a search term!");
+    return;
+  }
+  if (!accessToken) {
+    alert("Your login session expired. Please log in to continue.");
+    return;
+  }
+
+  const result = await fetch(
+    `https://api.spotify.com/v1/search?q=${searchTerm}&type=track&limit=50`,
+    {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+      method: "GET",
+    }
+  );
+
+  if (!result.ok) {
+    const errorDetails = await result.json();
+    console.error("Error:", result.status, result.statusText, errorDetails);
+    return;
+  }
+
+  const data = await result.json();
+  // console.log(data);
+
+  return data.tracks.items;
 };
 
 export default App;
