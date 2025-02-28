@@ -4,7 +4,6 @@ import propTypes from "../propTypes";
 
 const SearchResults = ({
   trackResultList,
-  // resultsList,
   addTrackToPlayList,
   removeTrackFromPlaylist,
   playList,

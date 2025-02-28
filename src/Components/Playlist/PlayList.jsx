@@ -5,7 +5,6 @@ import Track from "../Track/Track";
 import Button from "../Buttons/Button";
 
 const PlayList = ({
-  resultsList,
   playList,
   addTrackToPlayList,
   removeTrackFromPlaylist,
@@ -34,7 +33,6 @@ const PlayList = ({
             <div key={track.id}>
               <Track
                 track={track}
-                resultsList={resultsList}
                 removeTrackFromPlaylist={removeTrackFromPlaylist}
                 addTrackToPlayList={addTrackToPlayList}
                 playList={playList}
