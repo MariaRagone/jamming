@@ -54,9 +54,6 @@ const Home = ({ onClick, trackResultList, userProfileDetails, accessToken }) => 
         name={"My Profile"}
         onClick={handleButtonClick}
       ></Button>
-      <p>{userProfileDetails.name}</p>
-      <p>ID: {userProfileDetails.id}</p>
-      <p>uri: {userProfileDetails.uri}</p>
       <ResultsContainer
       userProfileDetails={userProfileDetails}
         trackResultList={trackResultList}

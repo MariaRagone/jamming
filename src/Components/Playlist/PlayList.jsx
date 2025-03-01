@@ -31,11 +31,11 @@ const PlayList = ({
         ></input>
       </form>
       <div>
+        <p>User ID: {userProfileDetails.id}</p>
+        <p>Token:  {accessToken}</p>
         {playList.map((track) => {
           return (
             <div key={track.id}>
-              <p>User ID: {userProfileDetails.id}</p>
-              <p>Token:  {accessToken}</p>
 
               <Track
                 track={track}
@@ -50,8 +50,9 @@ const PlayList = ({
         <Button
           type="submit"
           name={"Save to Spotify!"}
-          onClick={() => postPlayListToSpotify(playLuserProfileDetails.id, accessToken, playListNameist)}
-          // onClick={() => addPlayListToSpotify(playList)}
+          onClick={() => {
+           console.log(userProfileDetails.id)
+            postPlayListToSpotify(userProfileDetails.id, accessToken, playListName)}          }
         ></Button>
       </div>
     </div>
@@ -70,7 +71,7 @@ PlayList.propTypes = {
 };
 
 
-const postPlayListToSpotify = async (user_id, accessToken, playListName) => {
+const postPlayListToSpotify = async (userProfileDetails, accessToken, playListName) => {
   if (!accessToken) {
       alert("Your login session expired. Please log in to continue.");
       return;
