@@ -4,7 +4,7 @@ import ResultsContainer from "../ResultsContainer/ResultsContainer";
 import propTypes from "../propTypes";
 import Button from "../Buttons/Button";
 
-const Home = ({ onClick, trackResultList, userProfileDetails }) => {
+const Home = ({ onClick, trackResultList, userProfileDetails, accessToken }) => {
   const [playList, setPlayList] = useState([]);
   const [userSpotifyList, setUserSpotifyList] = useState([]);
 
@@ -55,13 +55,18 @@ const Home = ({ onClick, trackResultList, userProfileDetails }) => {
         onClick={handleButtonClick}
       ></Button>
       <p>{userProfileDetails.name}</p>
+      <p>ID: {userProfileDetails.id}</p>
+      <p>uri: {userProfileDetails.uri}</p>
       <ResultsContainer
+      userProfileDetails={userProfileDetails}
         trackResultList={trackResultList}
         playList={playList}
         userSpotifyList={userSpotifyList}
         addTrackToPlayList={addTrackToPlayList}
         removeTrackFromPlaylist={removeTrackFromPlaylist}
         addPlayListToSpotify={addPlayListToSpotify}
+        accessToken={accessToken}
+
       />
     </div>
   );

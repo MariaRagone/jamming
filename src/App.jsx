@@ -24,12 +24,13 @@ const App = () => {
     });
     setTrackResultList(mappedTracks);
   };
-  const onDetailsClick = async () => {
+  const onProfileDetailsClick = async () => {
     const profileData = await getProfileData(accessToken);
     console.log(profileData);
     const userData = {
       id: profileData.id,
       name: profileData.display_name,
+      uri: profileData.uri,
     };
 
     setUserProfileDetails(userData);
@@ -44,9 +45,10 @@ const App = () => {
         onClick={onSearchBarClick}
       />
       <Home
-        onClick={onDetailsClick}
+        onClick={onProfileDetailsClick}
         userProfileDetails={userProfileDetails}
         trackResultList={trackResultList}
+        accessToken={accessToken}
       />
     </div>
   );

@@ -5,6 +5,8 @@ import PlayList from "../PlayList/PlayList";
 import SpotifyPlayList from "../SpotifyPlayList/SpotifyPlayList";
 
 const ResultsContainer = ({
+  accessToken,
+  userProfileDetails,
   trackResultList,
   playList,
   addTrackToPlayList,
@@ -21,11 +23,13 @@ const ResultsContainer = ({
         playList={playList}
       />
       <PlayList
+      userProfileDetails={userProfileDetails}
         playList={playList}
         removeTrackFromPlaylist={removeTrackFromPlaylist}
         addTrackToPlayList={addTrackToPlayList}
         addPlayListToSpotify={addPlayListToSpotify}
         userSpotifyList={userSpotifyList}
+        accessToken={accessToken}
       />
       <SpotifyPlayList
         playList={playList}
@@ -45,6 +49,8 @@ ResultsContainer.propTypes = {
   removeTrackFromPlaylist: propTypes.removeTrackFromPlaylist,
   addPlayListToSpotify: propTypes.addPlayListToSpotify,
   userSpotifyList: propTypes.userSpotifyList,
+  userProfileDetails: propTypes.userProfileDetails,
+
 };
 
 export default ResultsContainer;
