@@ -38,18 +38,25 @@ const App = () => {
 
   return (
     <div>
+            {!accessToken ? (
       <Header accessToken={accessToken} setAccessToken={setAccessToken} />
-      <SearchBar
-        searchTerm={searchTerm}
-        setSearchTerm={setSearchTerm}
-        onClick={onSearchBarClick}
-      />
+    ) : (
+      <>
+      <Header accessToken={accessToken} setAccessToken={setAccessToken} />
+    <SearchBar
+      searchTerm={searchTerm}
+      setSearchTerm={setSearchTerm}
+      onClick={onSearchBarClick}
+    />
+      
       <Home
         onClick={onProfileDetailsClick}
         userProfileDetails={userProfileDetails}
         trackResultList={trackResultList}
         accessToken={accessToken}
-      />
+        />
+    </>
+    )}
     </div>
   );
 };
