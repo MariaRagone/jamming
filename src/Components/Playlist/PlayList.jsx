@@ -67,11 +67,6 @@ PlayList.propTypes = {
 };
 
 const getProfileData = async (accessToken) => {
-  if (!accessToken) {
-    alert("Your login session expired. Please log in to continue.");
-    return;
-  }
-
   const result = await fetch(`https://api.spotify.com/v1/me`, {
     method: "GET",
     headers: {
@@ -83,10 +78,6 @@ const getProfileData = async (accessToken) => {
 };
 
 const postPlayListToSpotify = async (userId, accessToken, playListName) => {
-  if (!accessToken) {
-    alert("Your login session expired. Please log in to continue.");
-    return;
-  }
   await fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, {
     method: "POST",
     headers: {
