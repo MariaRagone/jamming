@@ -13,7 +13,7 @@ export default function SpotifyAuth({
   accessToken,
   setUserName,
 }) {
-  const accessUrl = `${AuthEndpoint}?client_id=${clientId}&response_type=${responseType}&scope=playlist-modify-public&redirect_uri=${redirectUri}`;
+  const accessUrl = `${AuthEndpoint}?client_id=${clientId}&response_type=${responseType}&scope=playlist-modify-private&redirect_uri=${redirectUri}`;
 
   useEffect(() => {
     let token = window.localStorage.getItem("token");
