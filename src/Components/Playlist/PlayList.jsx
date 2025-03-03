@@ -32,7 +32,6 @@ const PlayList = ({
         ></input>
       </form>
       <div>
-        <p>Token: {accessToken}</p>
         {playList.map((track) => {
           return (
             <div key={track.id}>

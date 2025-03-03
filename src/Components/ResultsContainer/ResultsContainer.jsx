@@ -2,7 +2,6 @@ import propTypes from "../propTypes";
 import "./ResultsContainer.css";
 import SearchResults from "../SearchResults/SearchResults";
 import PlayList from "../PlayList/PlayList";
-import SpotifyPlayList from "../SpotifyPlayList/SpotifyPlayList";
 
 const ResultsContainer = ({
   accessToken,
@@ -23,7 +22,7 @@ const ResultsContainer = ({
         playList={playList}
       />
       <PlayList
-      userProfileDetails={userProfileDetails}
+        userProfileDetails={userProfileDetails}
         playList={playList}
         removeTrackFromPlaylist={removeTrackFromPlaylist}
         addTrackToPlayList={addTrackToPlayList}
@@ -31,17 +30,12 @@ const ResultsContainer = ({
         userSpotifyList={userSpotifyList}
         accessToken={accessToken}
       />
-      <SpotifyPlayList
-        playList={playList}
-        removeTrackFromPlaylist={removeTrackFromPlaylist}
-        addPlayListToSpotify={addPlayListToSpotify}
-        userSpotifyList={userSpotifyList}
-      ></SpotifyPlayList>
     </div>
   );
 };
 
 ResultsContainer.propTypes = {
+  accessToken: propTypes.accessToken,
   resultsList: propTypes.resultsList,
   trackResultList: propTypes.trackResultList,
   playList: propTypes.playList,
@@ -50,7 +44,6 @@ ResultsContainer.propTypes = {
   addPlayListToSpotify: propTypes.addPlayListToSpotify,
   userSpotifyList: propTypes.userSpotifyList,
   userProfileDetails: propTypes.userProfileDetails,
-
 };
 
 export default ResultsContainer;
