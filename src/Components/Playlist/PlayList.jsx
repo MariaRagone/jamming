@@ -78,17 +78,27 @@ const getProfileData = async (accessToken) => {
 };
 
 const postPlayListToSpotify = async (userId, accessToken, playListName) => {
-  await fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      name: playListName,
-      public: false,
-      description: "Created using Spotify API",
-    }),
-  });
+  const result = await fetch(
+    `https://api.spotify.com/v1/users/${userId}/playlists`,
+    {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: playListName,
+        public: false,
+        description: "Created using Spotify API",
+      }),
+    }
+  );
+
+  if (!playListName) {
+    alert("Please name your playlist.");
+  }
+  if (result) {
+    alert("Success!");
+  }
 };
 export default PlayList;

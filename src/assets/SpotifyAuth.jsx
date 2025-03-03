@@ -46,7 +46,7 @@ export default function SpotifyAuth({
 
       fetchProfile(token);
     }
-  }, [accessToken, setAccessToken, setUserName]);
+  }, []);
 
   function logout(e) {
     e.preventDefault();
