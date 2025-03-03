@@ -43,10 +43,6 @@ const App = () => {
 };
 
 const getAlbumTracks = async (searchTerm, accessToken) => {
-  if (!accessToken) {
-    alert("Your login session expired. Please log in to continue.");
-    return;
-  }
   if (!searchTerm) {
     alert("Please enter a search term!");
     return;
