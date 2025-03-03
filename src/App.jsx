@@ -8,11 +8,9 @@ const App = () => {
   const [accessToken, setAccessToken] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const [trackResultList, setTrackResultList] = useState([]);
-  const [userProfileDetails, setUserProfileDetails] = useState("");
 
   const onSearchBarClick = async () => {
     const tracks = await getAlbumTracks(searchTerm, accessToken);
-    // console.log(tracks);
     const mappedTracks = tracks.map((track) => {
       return {
         id: track.id,
@@ -24,60 +22,25 @@ const App = () => {
     });
     setTrackResultList(mappedTracks);
   };
-  const onProfileDetailsClick = async () => {
-    const profileData = await getProfileData(accessToken);
-    console.log(profileData);
-    const userData = {
-      id: profileData.id,
-      name: profileData.display_name,
-      uri: profileData.uri,
-    };
-
-    setUserProfileDetails(userData);
-  };
-
   return (
     <div>
-            {!accessToken ? (
-      <Header accessToken={accessToken} setAccessToken={setAccessToken} />
-    ) : (
-      <>
-      <Header accessToken={accessToken} setAccessToken={setAccessToken} />
-    <SearchBar
-      searchTerm={searchTerm}
-      setSearchTerm={setSearchTerm}
-      onClick={onSearchBarClick}
-    />
-      
-      <Home
-        onClick={onProfileDetailsClick}
-        userProfileDetails={userProfileDetails}
-        trackResultList={trackResultList}
-        accessToken={accessToken}
-        />
-    </>
-    )}
+      {!accessToken ? (
+        <Header accessToken={accessToken} setAccessToken={setAccessToken} />
+      ) : (
+        <>
+          <Header accessToken={accessToken} setAccessToken={setAccessToken} />
+          <SearchBar
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+            onClick={onSearchBarClick}
+          />
+
+          <Home trackResultList={trackResultList} accessToken={accessToken} />
+        </>
+      )}
     </div>
   );
 };
-
-const getProfileData = async (accessToken) => {
-  if (!accessToken) {
-    alert("Your login session expired. Please log in to continue.");
-    return;
-  }
-
-  const result = await fetch(`https://api.spotify.com/v1/me`, {
-    method: "GET",
-    headers: {
-      authorization: `Bearer ${accessToken}`,
-    },
-  });
-  const data = await result.json();
-  return data;
-};
-
-// const postPlayListToSpotify = () ={}
 
 const getAlbumTracks = async (searchTerm, accessToken) => {
   if (!accessToken) {

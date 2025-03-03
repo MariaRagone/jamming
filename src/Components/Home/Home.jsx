@@ -2,9 +2,8 @@ import { useState } from "react";
 import "./Home.css";
 import ResultsContainer from "../ResultsContainer/ResultsContainer";
 import propTypes from "../propTypes";
-import Button from "../Buttons/Button";
 
-const Home = ({ onClick, trackResultList, userProfileDetails, accessToken }) => {
+const Home = ({ trackResultList, userProfileDetails, accessToken }) => {
   const [playList, setPlayList] = useState([]);
   const [userSpotifyList, setUserSpotifyList] = useState([]);
 
@@ -19,10 +18,7 @@ const Home = ({ onClick, trackResultList, userProfileDetails, accessToken }) => 
       tracks.filter((track) => track.id !== trackToRemove.id)
     );
   };
-  const handleButtonClick = (e) => {
-    e.preventDefault();
-    onClick();
-  };
+
   const addPlayListToSpotify = (playList) => {
     setUserSpotifyList((userSpotifyList) => {
       const duplicateTracks = playList.filter((trackToAdd) =>
@@ -49,13 +45,8 @@ const Home = ({ onClick, trackResultList, userProfileDetails, accessToken }) => 
   return (
     <div className="home">
       <span id="id"></span>
-      <Button
-        type="submit"
-        name={"My Profile"}
-        onClick={handleButtonClick}
-      ></Button>
       <ResultsContainer
-      userProfileDetails={userProfileDetails}
+        userProfileDetails={userProfileDetails}
         trackResultList={trackResultList}
         playList={playList}
         userSpotifyList={userSpotifyList}
@@ -63,13 +54,13 @@ const Home = ({ onClick, trackResultList, userProfileDetails, accessToken }) => 
         removeTrackFromPlaylist={removeTrackFromPlaylist}
         addPlayListToSpotify={addPlayListToSpotify}
         accessToken={accessToken}
-
       />
     </div>
   );
 };
 
 Home.propTypes = {
+  accessToken: propTypes.accessToken,
   resultsList: propTypes.resultsList,
   trackResultList: propTypes.trackResultList,
   onClick: propTypes.onClick,
